@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
-public class StockControllerTest {
+public class StockController2Test {
 
     private MockMvc mockMvc;
     private StockInterface stockInterface;
@@ -40,14 +40,14 @@ public class StockControllerTest {
         stock.setName("Alphabet Inc.");
         stock.setPrice(975.63);
         when(stockInterface.findById(stockId)).thenReturn(stock);
-        mockMvc.perform(get("/stock/{id}", stockId)).andExpect(status().isOk());
+        mockMvc.perform(get("/stock2/{id}", stockId)).andExpect(status().isOk());
     }
 
     @Test
     void shouldHandleAbsentGetStockById() throws Exception {
 
         Throwable exception = assertThrows(NestedServletException.class, () ->{
-            mockMvc.perform(get("stock/{id}", "NASDAQ:GOOG")).andExpect(status().isOk());
+            mockMvc.perform(get("stock2/{id}", "NASDAQ:GOOG")).andExpect(status().isOk());
         });
         assertTrue(exception.getMessage().contains("Sorry we do not have stock information for given company"));
     }

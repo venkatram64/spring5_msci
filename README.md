@@ -1,0 +1,1 @@
+This application about Spring 5 with JPA, JDBC and testing

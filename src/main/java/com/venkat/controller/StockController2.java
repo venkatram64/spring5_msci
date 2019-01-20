@@ -18,7 +18,7 @@ public class StockController2 {
         this.stockInterface = stockInterface;
     }
 
-    @GetMapping("/stock/{id}")
+    @GetMapping("/stock2/{id}")
     public Stock getInfo(@PathVariable("id") String id) {
         Stock stock = stockInterface.findById(id);
         if (stock == null) {
@@ -27,7 +27,7 @@ public class StockController2 {
         return stock;
     }
 
-    @PutMapping("/stock/{id}")
+    @PutMapping("/stock2/{id}")
     public void saveStock(@PathVariable("id") String id, @RequestBody Stock stock) {
         stockInterface.save(stock);
     }
