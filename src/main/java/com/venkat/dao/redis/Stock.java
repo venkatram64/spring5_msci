@@ -3,11 +3,13 @@ package com.venkat.dao.redis;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
+
 //import javax.persistence.Id;
 
 
 @RedisHash("stocks")
-public class Stock {
+public class Stock implements Serializable {
 
     @Id
     private String id;
